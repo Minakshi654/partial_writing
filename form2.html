@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+function SubForm (){
+    $.ajax({
+        url:"https://api.apispreadsheets.com/data/15423/",
+        type:"post",
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Congratulations! you have a great job. Happy Day!:)")
+        },
+        error: function(){
+          alert("There was an error :(")
+        }
+    });
+}
+</script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 70%;
+  padding: 12px;
+  border: 1px solid hsla(0, 100%, 70%, 0.3);
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.submit {
+  background-color: #736AFF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.submit:hover {
+  background-color:  #BDEDFF;
+}
+
+.container {
+  border-radius: 5px;
+  background-image: linear-gradient(to right, hsla(0, 100%, 70%, 0.3), #BDEDFF);
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+textarea {
+  margin-top: 10px;
+  margin-left: 50px;
+    margin-right: 50px;
+  width: 80%;
+  height: 100px;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+  border-image: none;
+  border-radius: 6px 6px 6px 6px;
+  border-style: none solid solid none;
+  border-width: medium 1px 1px medium;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+  color: #555555;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  background-color: white;
+}
+
+
+textarea:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div>
+<a href="Main.html"><img src="logy.jpg" style="height: 125px; width: 125px;"></a> <b><u><center> "An Initiative To Bring Reader And Writer Together" </u></b><center> 
+</div>
+</br>
+</br>
+</br>
+<div class="container">
+  <form id="myForm">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Your pen name:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="fullname" placeholder="Your name..">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label for="lname"> Email </label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="email" placeholder="Your E-mail Id..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname"> Title </label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="Title" placeholder="Title of your writeup">
+      </div>
+    </div>
+	 <div class="row">
+	<div class="col-25">
+        <label for="lname"> Write your content here: </label>
+      </div>
+	        <div class="col-75">
+    <textarea placeholder=" Start writing....." rows="20" name="comment" id="comment_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+	</div></div>
+	</form></br></br>
+	<div class="row">
+     <center><button class="submit" onclick="SubForm()">Submit</button></center>
+    </div>
+</div>
+</body>
+</html>
