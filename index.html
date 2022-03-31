@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/15415/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("You will get email soon:)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif; 
+margin:0;
+ padding: 5px;
+  background-color: white;
+  color: black;
+}
+.dark-mode {
+  background-image: linear-gradient(to right, white , #BDEDFF);
+  color: white;
+}
+img {
+  border-radius: 50%;
+}
+header
+{
+position: fixed;
+top:0; 
+left: 0;
+width: 100%; 
+padding: 40px 100px;
+z-index: 10000;
+display: flex; 
+justify-content:space-between;
+align-items: center;
+transition: 0.5%;
+}
+header.sticky
+{
+background: #BDEDFF;	 
+padding: 10Px 100px; 
+box-shadow: 0.5px 20px rgba(0,0,0,0,0.05);
+}
+header .logo
+{
+color: white; 
+max-width:20px;
+max-height:10px;
+position: relative;
+}
+header.sticky .logo
+{
+color:#111;
+position: relative;
+}
+header .navigation
+{
+	position: relative; 
+	display: flex;
+}
+header .navigation li
+{
+list-style: none; 
+margin-left: 30px;
+}
+header .navigation li a
+{
+text-decoration: none; 
+color: black; 
+font-weight: 500;
+}
+header.sticky .navigation li a
+{
+color: black;
+}
+header .navigation li a:hover
+{
+	color: #ff0157;
+}
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 600px)
+{
+	header,
+	header.sticky
+	{
+		padding:10px 20px;
+	}
+	header .navigation
+	{
+		display: none;
+	}
+	header .navigation.active
+	{
+		width: 100%;
+		height: calc(100%-68px);
+		position: fixed;
+		top: 68px;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items:center;
+		flex-direction: column;
+		background: #BDEDFF; 
+	}
+	header .navigation li
+	{
+		margin-left: 0;
+	}
+	header .navigation li a
+	{
+		font-size: 1.6em;
+		content: black;
+	}
+	.menutoggle
+	{
+		position: relative;
+		width: 40px;
+		height: 40px;
+		background: url(https://clipartart.com/images/hamburger-menu-icon-clipart-3.png);
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer; 
+	}
+	.menutoggle:hover{
+	 background-color: hsla(0, 100%, 70%, 0.3);
+	
+	}
+	.menutoggle.active
+	{
+		background: url(https://image.flaticon.com/icons/png/128/52/52084.png);
+		background-size: 25px;
+		background-repeat: no-repeat;
+		background-position: center;  
+	}
+	header.sticky .menutoggle
+	{
+		filter: invert(1);
+	} }
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 10px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.column img:hover
+ {
+  opacity: 0.8;
+  box-shadow: 6px 6px  #BDEDFF;
+}
+.JK {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+  background-color: hsla(0, 100%, 70%, 0.3);
+  box-shadow: 10px 10px #BDEDFF;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 75%;
+    flex: 75%;
+    max-width: 75%;
+  }
+}
+.rown {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.columny {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 30px;
+}
+@media screen and (max-width: 800px) {
+  .columny {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .columny {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+form {
+  border: 3px solid #f1f1f1;
+  font-family: Arial;
+  width: 50%;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+}
+
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #BDEDFF;
+  box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  margin-top: 16px;
+}
+
+.Ty {
+  background-color: #BDEDFF;
+  color: black;
+  border: none;
+  width: 50%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
+.button {
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #BDEDFF, #FFDAB9, #FF7F50);
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: relative;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+  }
+  
+.footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+   padding: 25px;
+    word-break: keep-all;
+	font-family: Comic Sans MS, Comic Sans, cursive;
+}
+.HY{
+border-radius: 25px;
+width: 100%;
+}
+.PK{
+text-shadow: 2px 2px 2px #BDEDFF;
+font-size: 50px;
+color: black;
+}
+.JKWY {
+  width: 100%;
+  height: 100px;
+  padding: 30px 40px 60px 20px;
+  background-color: #BDEDFF;
+  color: Black;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  font-family: Luminari, fantasy; font-size: 20px;
+  background-image: linear-gradient(to right, #F0FFF0, #FFE4E1);
+}
+.JKW {
+  width: 100%;
+  height: 100px;
+  color: Black;
+  font-size: 20px;
+  font-family: URW Chancery L, cursive; font-size: 20px;
+    background-image: linear-gradient(to right, #F0FFF0, #FFE4E1);
+  padding: 30px 20px 20px 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.HY:hover
+ {
+  opacity: 0.8;
+  box-shadow: 10px 10px  #BDEDFF;
+}
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+
+ 
+</style>
+</head>
+<body>
+<div>
+<header>
+		<a href="Main.html"><img src="logy.jpg" style="height: 125px; width: 125px;"></a>
+		<div class="menutoggle" onclick=" togglemenu();"></div>
+		<ul class="navigation">
+			<li><a href="write.html" onclick=" togglemenu();">Write</a></li>
+						<div class="dropdown">
+			<li><a href="#poem" onclick=" togglemenu();">Events</a></li>
+			    <div class="dropdown-content">
+      <a href="main2.html">Open Mic</a>
+      <a href="Contes.html">Contests</a>
+      <a href="work.html">Workshop</a>
+	  
+    </div>
+  </div> 
+			<div class="dropdown">
+			<li>
+    <a href="#about" onclick=" togglemenu();">Genre</a></li>
+    <div class="dropdown-content">
+      <a href="#">Romance</a>
+      <a href="#">Drama</a>
+      <a href="#">Tradegy</a>
+	  <a href="#">Action</a>
+	  
+    </div>
+  </div> 
+			<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeMg49bNx3sZpf3bmqu7JqD2e20T80JwYhA-7kp-15klviHCQ/viewform?vc=0&c=0&w=1&flr=0" onclick=" togglemenu();">Internship</a></li>
+			<li><a href="#contact" onclick=" togglemenu();">Awards</a></li>
+			<li><button onclick="myFunction()" style="border-radius: 50%; background-color:#BDEDFF; ">Light</button></li>
+		</ul>
+	</header>
+	</div>
+  <div> </br> </div>
+  <div> </br> </div>
+   <div> </br> </div>
+  <div> </br> </div>
+  <div> </br> </div>
+  <div> </br> </div>
+   <div> </br> </div>
+  <div> </br> </div>
+  <div> </br> </div>
+  
+  <center><div class="JK">"An Initiative to bring writers and readers together." </div></center>
+  <div> </br> </div>
+  <div> </br> </div>
+  <div class="row"> 
+  <div class="column">
+   <a href="work.html"> <img src="Workshops.jpg" style="width:100%"></a>
+  </div>
+  <div class="column">
+  <a href="main2.html"><img src="Mic.jpg" style="width:100%"></a>
+  </div>  
+  <div class="column">
+  <a href="Contes.html"><img src="Contest.jpg" style="width:100%"></a>
+  </div>
+  <div class="column">
+  <a href="Magzine.html"><img src="Puzzle (1).jpg" style="width:100%"></a>
+  </div>
+  </div>
+  <div> </br> </div>
+  <div> </br> </div>
+  <div> </br> </div>
+  <center><div class="JKWY"> <b> Reading Interface </b> </br>
+  </br>
+</div></center>
+  <div> </br> </div>
+  <div> </br> </div>
+<div class="rown">
+<div class="columny">
+<center>  <a href="stiry.html"><button class="button"><span> Story </span></button></a></center></br></br></br></br>
+<center> <a href="poem.html"><button class="button"><span> Poem </span></button></a></center></br></br></br></br>
+</div>
+<div class="columny">
+<center>  <a href="quote.html"><button class="button"><span> Quotes</span></button></a></br></br></br></br>
+ <a href="podcast.html"><button class="button"><span> Podcast</span></button></a> <center>
+</div>
+</div>
+ <div> </br> </div>
+  <div> </br> </div>
+   <center><div class="JKW"> <b> Recommended </b></br>
+ </center>
+   <div> </br> </div>
+  <div> </br> </div>
+<div class="owl-carousel owl-theme">
+    <div class="item">
+	<a href="4.html"><img src="AS.jpg" class="HY"></a>
+</div>
+<div class="item">
+	<img src="p1.jpg" class="HY">
+</div>
+<div class="item">
+	<a href="work.html"><img src="CW.jpg" class="HY"></a>
+</div>
+<div class="item">
+	<a href="work.html"><img src="Str.png" class="HY"></a>
+</div>
+<div class="item">
+	<a href="9.html"><img src="Best friend.jpg" class="HY"></a>
+</div>
+<div class="item">
+	<img src="q1.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="p2.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="The Lady Of The Night.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="q2.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="p3.jpg" class="HY">
+</div>
+<div class="item">
+	<a href="8.html"><img src="You're.jpg" class="HY"></a>
+</div>
+<div class="item">
+	<img src="q3.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="p4.jpg" class="HY">
+</div>
+<div class="item">
+	<a href="7.html"><img src="Will you be my Valentine .jpg" class="HY"></a>
+</div>
+<div class="item">
+	<img src="p5.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="q4.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="q5.jpg" class="HY">
+</div>
+<div class="item">
+	<img src="d1.jpg" class="HY">
+</div>
+</div>
+  <div> </br> </div>
+  <div> </br> </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <div> </br> </div>
+  <div> </br> </div>
+  <div class="rown">
+<div class="columny">
+<center><img src="pubi.gif" style="width: 100%; height:auto; " class="HY"></center></br></br></br></br></br></br>
+</div>
+  <div> </br> </div>
+  <div> </br> </div>
+    <div> </br> </div>
+  <div> </br> </div>
+    <div> </br> </div>
+  <div> </br> </div>
+<div class="columny">
+<center><img src="book.jpg" style="width: 100%; height:auto;" class="HY"></center></br></br></br>
+</div>
+</div>
+  <div> </br> </div>
+  <div> </br> </div>
+<center><form id="myForm">
+  <div class="container" style="background-color:white; width:100%;">
+    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Email address" name="mail" required>
+    <label></br>
+      <input type="checkbox" checked="checked" name="suscribe" value="Yes"> Daily Newsletter
+    </label>
+  </div>
+  </form></center>
+  <center><button class ="Ty" onclick="SubForm()"> <b>Subscribe</b></button></center>
+    <div> </br> </div>
+  <div> </br> </div>
+<div class="footer">
+<div ><b><u>About Us </u></b></div></br> <b> <a href="https://buy.stripe.com/8wM17n7rhbzc8uI5kk" style= "text-decoration: none; color: white;"> Contribute </a></b>
+<p> Partialwriting joins writer community with readers community. It is a platform where you can participate in events and
+ read your interest in various available genre. Let's Join hand in hand to uplift script lovers. Join us and grow your passion. 
+ We as a community help the aspiring writers and readers to achieve new heights in their passionate work. We conduct various campaigns and numerous 
+ rewards for your best skill. We also provide you with a variety of genre of stories to spend your quality time in our website.
+ We will publish the best stories from the campaigns conducted in our website. Join us and grow your passion.
+ </p></br>
+ <p> <a style="color: white; text-decoration:none;" href="work.html"> Know US </a></br><a style="color: white; text-decoration:none;" href="Magzine.html"> Magzine</a><a style="color: white; text-decoration:none;" href="main2.html"> Open Mic</a> <a style="color: white; text-decoration:none;" href="Contes.html"> Contest </a> <a style="color: white; text-decoration:none;" href="https://docs.google.com/forms/d/e/1FAIpQLSeMg49bNx3sZpf3bmqu7JqD2e20T80JwYhA-7kp-15klviHCQ/viewform?vc=0&c=0&w=1&flr=0"> Internship</a>  
+ <p> &#169; Copyright by partialwriting </p>
+ <a href="https://www.facebook.com/profile.php?id=100069665664242" class="fa fa-facebook"></a>
+<a href="https://www.linkedin.com/in/minakshi-789387193" class="fa fa-linkedin"></a>
+<a href="https://youtube.com/channel/UChD1wv3QgHkUhVeEnKbI-bA" class="fa fa-youtube"></a>
+<a href="https://instagram.com/partial_writing?utm_medium=copy_link" class="fa fa-instagram"></a>
+<a href="https://pin.it/63VjQ5T" class="fa fa-pinterest"></a>
+</div>
+<script type="text/javascript">
+	window.addEventListener('scroll',function() {
+		const header = document.querySelector('header');
+		header.classList.toggle("sticky",window.scrollY > 0);
+	});
+	function togglemenu() {
+		const menutoggle=document.querySelector('.menutoggle');
+		const navigation=document.querySelector('.navigation');
+		menutoggle.classList.toggle('active');
+		navigation.classList.toggle('active');
+	}
+	function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+</script>
+</body>
+</html> 
+
+
