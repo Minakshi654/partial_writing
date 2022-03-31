@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<style>
+* {box-sizing: border-box;}
+body {
+  margin: 0;
+  font-family: Arial;
+    color: black;
+    background-image: linear-gradient(to right, white , #BDEDFF);}
+.header {
+  text-align: center;
+  padding: 32px;
+}
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;}
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #BDEDFF;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width:100%;
+}
+.uy {
+  background-image: linear-gradient(to right, #BDEDFF, hsla(0, 100%, 70%, 0.3));
+  width: 100%;
+  border-style: outset;
+  border: 15px double hsla(0, 100%, 70%, 0.3);
+  padding: 50px;
+   line-height: 2.0;
+  margin: 20px;}
+.button:hover {background-color: #736AFF}
+
+.button:active {
+  background-color: #736AFF;
+  box-shadow: 0 5px  hsla(0, 100%, 70%, 0.3);
+  transform: translateY(4px);
+}
+.rt{border-style: outset;
+width: 100%;
+height 700px;}
+.Yu{
+text-decoraction: None;}
+a {
+  color: black;
+  text-decoration: none;
+}
+.previous {
+  background-color: pink;
+  color: black;
+  float: left;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+  float: right;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;}
+  .frame{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  width: 250px;
+  position: relative;
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,
+   inset 0px 0px 0px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+ transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+   border-radius: 10px;
+}
+
+.btn{
+  height: 40px;
+  width: 40px;
+  border-radius: 3px;
+  background: #e0e5ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+ transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+  font-size: 26px;
+  color: #666;
+  text-decoration: none;
+}
+.btn:hover{
+background: radial-gradient(circle,  #0ff 0%, #e0e5ec 60%);
+  color: rgba(102,102,102,.5); 
+  animation: colorchange 3s linear infinite;
+}
+.btn:active{
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+@keyframes colorchange {
+	to {filter: hue-rotate(360deg);}
+}
+.bottom-left {
+  position: absolute;
+  border: ridge;
+  background-color:hsla(0, 100%, 70%, 0.3);
+  color: white;
+  padding: 10px 10px 10px 10px;
+}
+
+</style>
+</head>
+<body>
+<div class="header">
+<a href="index.html" class="previous"> Home</a>
+<a href="write.html" class="next"> Write</a></br>
+  <h1><center> <b> <u> Contest </u></b> </center></h1>
+  <p>Click on the button to participate in the contest</p>
+  <p> All the Best! For sure you can do it. </p></br>
+    <center><div class ="frame">
+   
+    <a href="index.html" class="btn">
+ <i class="fa fa-backward"></i>
+</a>
+    <a href="event.html" class="btn">
+<i class="fa fa-play"></i>
+</a>
+    <a href="write.html" class="btn">
+ <i class="fa fa-forward"></i>
+</a>
+</div></center>
+</div>
+<div class="row"> 
+  <div class="column">
+    <div class= "uy">
+    <img src="Week1.jpg" style="width:100%">
+	<h2> <center>Week 1 </center></h2>
+	<p> 1) Genre: Romance </br>
+	2) Word-limit: 400 words </br>
+	3) Win Rewards and space on Magazine.</br>
+	4) Submit numerous number of content. </br>
+	5) Every post will be posted on offical account </br> </p>
+	<center><button class="button"><a href= "form2.html"><center> Participate </center></a></button> 
+  </center></div></div>
+   </div>
+</body>
+</html>
